@@ -29,8 +29,10 @@ jobs:
 
       - name: Pull kernel source
         run: |
-          mkdir android/source
-          cd android/source
+          mkdir -p android
+          cd android
+          mkdir -p source
+          cd source
           git clone --depth=1 ${{ env.KERNEL_SOURCE }} -b ${{ env.KERNEL_SOURCE_BRANCH }} kernel-source
           cd ../../
           git clone --depth=1 ${{ env.VENDOR_SOURCE }} -b ${{ env.KERNEL_SOURCE_BRANCH }} tmp
